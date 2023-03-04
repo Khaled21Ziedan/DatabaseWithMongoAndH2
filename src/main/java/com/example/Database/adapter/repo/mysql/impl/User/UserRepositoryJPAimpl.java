@@ -1,13 +1,14 @@
-package com.example.Database.adapter.repo.impl.User;
+package com.example.Database.adapter.repo.mysql.impl.User;
 
 import com.example.Database.adapter.model.Address;
 import com.example.Database.adapter.repo.UserRepository;
 import com.example.Database.adapter.model.User;
-import com.example.Database.adapter.repo.impl.Address.AddressEntity;
+import com.example.Database.adapter.repo.mysql.impl.Address.AddressEntity;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,6 +16,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Component
+@Profile("User-JPA")
 public class UserRepositoryJPAimpl implements UserRepository {
     private final UserRepositoryJPASpringImpl userRepositoryJPASpring;
 
@@ -25,8 +27,6 @@ public class UserRepositoryJPAimpl implements UserRepository {
     @Override
     public long save(User user) {
         UserEntity userEntity = toUserEntity(user);
-        System.out.println(userEntity.getAccounts()+"\n");
-        System.out.println(userEntity.getAddress());
         UserEntity savedUser = userRepositoryJPASpring.save(userEntity);
         return savedUser.getId();
     }
@@ -67,8 +67,7 @@ public class UserRepositoryJPAimpl implements UserRepository {
                 .email(user.getEmail())
                 .name(user.getName())
                 .id(user.getId())
-                .address(user.getAddress())
-                .accounts(user.getAccountEntities())
+                .address(toAddressEntity(user.getAddress()))
                 .build();
     }
 
@@ -81,5 +80,8 @@ public class UserRepositoryJPAimpl implements UserRepository {
                 .id(userEntity.getId())
                 .name(userEntity.getName())
                 .build();
+    }
+    private AddressEntity toAddressEntity(Address address){
+        return AddressEntity.builder().location(address.getLocation()).build();
     }
 }

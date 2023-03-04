@@ -1,7 +1,5 @@
-package com.example.Database.adapter.repo.impl.Address;
+package com.example.Database.adapter.repo.mysql.impl.Address;
 
-import com.example.Database.adapter.model.User;
-import com.example.Database.adapter.repo.impl.User.UserEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

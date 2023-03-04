@@ -1,7 +1,5 @@
 package com.example.Database.adapter.model;
 
-import com.example.Database.adapter.repo.impl.Account.AccountEntity;
-import com.example.Database.adapter.repo.impl.Address.AddressEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,7 +18,8 @@ public class User {
     private String city;
     private int age ;
     private boolean active ;
-    private AddressEntity address;
-    private List<AccountEntity> accountEntities;
+    private Address address;
+    private List<Account> accounts;
+    private List<Course> courses;
 
 }

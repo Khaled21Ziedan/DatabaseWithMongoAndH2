@@ -1,6 +1,6 @@
-package com.example.Database.adapter.repo.impl.Account;
+package com.example.Database.adapter.repo.mysql.impl.Account;
 
-import com.example.Database.adapter.repo.impl.User.UserEntity;
+import com.example.Database.adapter.repo.mysql.impl.User.UserEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

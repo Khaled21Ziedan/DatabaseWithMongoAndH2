@@ -19,8 +19,8 @@ public class UserController {
     }
 
     @PostMapping
-    public Long savingUser(@RequestBody UserDTO userDTO){
-        return userService.registerUser(toUser(userDTO));
+    public Long savingUser(@RequestBody User user){
+        return userService.registerUser(user);
     }
     @GetMapping("/{id}")
     public UserDTO loadingUser(@PathVariable Long id){
