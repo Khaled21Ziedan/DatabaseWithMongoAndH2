@@ -18,11 +18,11 @@ public class TestRepo implements CommandLineRunner {
     public void run(String... args) throws Exception {
         User user = new User();
         user.setId(1L);
-        user.setName("khaled");
-        user.setEmail("khaled@123");
-        user.setCity("amman");
+        user.setName("mosa");
+        user.setEmail("mosaa@123");
+        user.setCity("zarqa");
         user.setActive(true);
-        user.setAge(40);
+        user.setAge(23);
 
         userRepository.save(user);
     }

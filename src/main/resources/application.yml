@@ -6,8 +6,8 @@ spring :
       uri: mongodb+srv://kmsaleh:1234@cluster0.yuxq7dc.mongodb.net/myDB?retryWrites=true&w=majority
   profiles:
     active:
-     - User-MongoDB
-#     - User-JPA
+#     - User-MongoDB
+     - User-JPA
   datasource :
     url : jdbc:h2:mem:testUser
     username : sa

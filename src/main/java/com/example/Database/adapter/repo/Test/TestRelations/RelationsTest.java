@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
-@Component
+//@Component
 public class RelationsTest implements CommandLineRunner {
     private final CourseRepository courseRepository;
     private final AccountRepository accountRepository;
